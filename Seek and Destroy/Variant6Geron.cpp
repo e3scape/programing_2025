@@ -1,25 +1,25 @@
 #include <iostream>
-#include <cmath>
+#include <cmath> // подключаем библиотеку нужную для стандартных математических функций cmath
+using namespace std;
 
 int main() {
-    double a, b, c;
-    std::cout << "Введите длину стороны a: ";
-    std::cin >> a;
-    std::cout << "Введите длину стороны b: ";
-    std::cin >> b;
-    std::cout << "Введите длину стороны c: ";
-    std::cin >> c;
+    // Ввод сторон треугольника
+    int a, b, c; //int т.к. нужны целые числа 
+    cout << "Введите длины сторон треугольника:" << endl;
+    cout << "Сторона a: ";
+    cin >> a;
+    cout << "Сторона b: ";
+    cin >> b;
+    cout << "Сторона c: ";
+    cin >> c;
+    // Вычисление полупериметра
+    float p = (a + b + c) / 2.0; //беру float так как нужны вещественные числа и требуется меньше байт
 
-    if (a + b <= c || a + c <= b || b + c <= a) {
-        std::cout << "Треугольника с такими сторонами не существует." << std::endl;
-        return 1;
-    }
+    // Вычисление площади по формуле Герона
+    float S = sqrt(p * (p - a) * (p - b) * (p - c)); //беру float так как нужны вещественные числа и требуется меньше байт, подсчёт площади 
+    cout << "Размер int в битах: " << sizeof(int) * 8  << " Минимально: " << numeric_limits<int>::min() << " Максимально: " << numeric_limits<int>::max() << endl; // вывод о типе int
+    cout << "Размер float в битах: " << sizeof(float) * 8 <<" Минимально: "<< numeric_limits<float>::lowest() << " Максимально: " << numeric_limits<float>::max() << endl; // вывод о типе float
 
-    double s = (a + b + c) / 2;
-
-    double Geron = sqrt(s * (s - a) * (s - b) * (s - c));
-
-    std::cout << "Площадь треугольника: " << Geron << std::endl;
-
+    cout << "Площадь треугольника: " << S << " float" << endl; //вывод площади треугольника
     return 0;
 }

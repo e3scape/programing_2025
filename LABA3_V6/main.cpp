@@ -1,37 +1,42 @@
 #include <iostream>
-#include <cmath>
-/*int main() {
-    int N; // кол-во чисел
-    std:: cout << "Введите кол-во чисел: ";
+using namespace std;
+int main() {
+    int N;
+    std::cout << "Введите количество чисел в последовательности: ";
     std::cin >> N;
-    int Number = 0; // Счетчик введенных чисел
-    int Product = 0; //Сумма чисел подходящих под услвие
-    int Max = -2^31; //Максимальное число последовательности
-    int i = -1; // Индекс максимального числа
-    for (N; N > 0; --N) {
-        ++Number;
-        std::cout << "Введите число " << Number << ": ";
+    long int sum = 0;
+    int max_number = 0;
+    int max_index = -1;
+    int count = 0;
+    bool found = false;
+
+    std::cout << "Введите числа последовательности:" << std::endl;
+    for (int i = 1; i <= N; i++) {
         int num;
+        std::cout << "Число " << i << " = ";
         std::cin >> num;
-        if ((num%3 != 0) && (num%5 != 0) && (num%7 != 0)) {
-            Product = Product + num;
-            if (num > Max) {
-                Max = num;
-                i = Number;
+        if (num % 3 != 0 && num % 5 != 0 && num % 7 != 0) {
+            sum += num;
+            count++;
+            if (num > max_number || !found) {
+                max_number = num;
+                max_index = i;
+                found = true;
             }
         }
     }
-    if (i != -1) {
-    std:: cout << "Cумма чисел подходящих условию: " << Product << std::endl;
-    std:: cout << "Максимальное число: " << Max << " Его Индекс: " << i << std::endl;
+    if (count == 0) {
+        std::cout << "В последовательности нет подходящих чисел" << std::endl;
     }
     else {
-        std::cout << "Нету чисел подходящих условию" << std::endl;
+        std::cout << "Количество подходящих чисел: " << count << std::endl;
+        std::cout << "Числа подходящие условию: " << sum << std::endl;
+        std::cout << "Наибольшее число: " << max_number << " Его номер: " << max_index << ::endl;
     }
     return 0;
 }
-*/
 
+/*
 int main() {
     std::cout << "Введите число: ";
     short N;
@@ -68,3 +73,4 @@ int main() {
 
     return 0;
 }
+*/

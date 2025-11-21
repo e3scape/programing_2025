@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Главная функция программы
+
 int main() {
     // Создаём двумерный массив 2x2 с динамической памятью
     int** arr = (int**)malloc(2 * sizeof(int*));
@@ -19,7 +19,7 @@ int main() {
                 do {
                     if (arr[i][j] >= 0) break;
 
-                    std::cout << "Введите новое НЕ отрицательное число: ";
+                    std::cout << "Введите новое не отрицательное число: ";
                     std::cin >> arr[i][j];
 
                 } while (arr[i][j] < 0);
